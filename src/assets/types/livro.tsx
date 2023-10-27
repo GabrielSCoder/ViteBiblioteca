@@ -18,6 +18,7 @@ interface Livro {
     usuarioCadastro : string;
     usuarioUltimaAlteracao : string;
     livroCategoriaId : number;
+    anoEdicao : number
 }
 
 export default Livro

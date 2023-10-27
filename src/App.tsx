@@ -1,10 +1,13 @@
-import './App.css'
-import Home from './assets/pages/Home'
+import Cabecalho from './assets/components/Cabecalho'
+import Router from '../Router'
 
 function App() {
 
   return (
-      <Home />
+    <>
+      <Cabecalho />
+      <Router />
+    </>
   )
 }
 

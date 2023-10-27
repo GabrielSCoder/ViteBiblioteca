@@ -1,14 +1,16 @@
 import Cabecalho from "../components/Cabecalho";
 import Filtro from "../components/Filtro";
 import Livros from "../components/Livros";
+import {useState} from 'react'
 
 function Home() {
+    const [filtroData, setFiltroData] = useState({ pesquisa: null, categoria: null });
+
     return (
         <>
-            <Cabecalho />
             <div className="mx-3">
-                <Filtro />
-                <Livros />
+                <Filtro setFiltroData={setFiltroData} />
+                <Livros filtroData={filtroData} />
             </div>
             <div className="mb-10">
             </div>
