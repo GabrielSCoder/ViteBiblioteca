@@ -6,6 +6,9 @@ import { pLivro, getLivro } from "../services/requisicoes";
 import { useParams, useNavigate } from "react-router-dom";
 import {useEffect} from 'react'
 import CategoriaSelect from "./Categoria";
+import mostrarToast from '../utils/mostrarToast.ts'
+import useDebounce from '../utils/debounce';
+import { useCallback } from 'react';
 
 function Form() {
 
@@ -14,14 +17,24 @@ function Form() {
 
     const { register, handleSubmit, reset, setValue, getValues, formState: { errors } } = useForm<Livro>();
     
-    const onSubmit: SubmitHandler<Livro> = async (data) => {
-        await pLivro(data, id)
-        navigate("/")
-    }
-
     const updateCategoria = (value) => {
         setValue("livroCategoriaId", value)
     }
+
+    const submiti: SubmitHandler<Livro> = async (data) => {
+        const resp = await pLivro(data, id)
+        navigate("/")
+        resp ? id ? mostrarToast("Editado com sucesso!") : mostrarToast("Adicionado com sucesso!") : console.log("erro")
+    }
+
+    const onSubmit = useCallback(
+        useDebounce(async (data) => {
+          const resp = await pLivro(data, id);
+          navigate('/');
+          resp ? id ? mostrarToast('Editado com sucesso!') : mostrarToast('Adicionado com sucesso!') : console.log("erro")
+        }, 500),
+        [id, navigate]
+    );
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,9 +61,6 @@ function Form() {
                         <FaBook size={30} className="text-lg text-green-800"/>
                         <h3 className="font-medium text-3xl text-green-900 align-baseline ml-2">Livro</h3>
                     </div>
-                    <div className="pr-5">
-                        <button className="bg-gray-600 text-zinc-200 p-2 rounded-md text-xl">Imprimir</button>
-                    </div>
                 </div>
             </div>
 
@@ -70,47 +80,49 @@ function Form() {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="bg-green-600 text-white text-lg p-2 border-rounded rounded-md">Confirmar</button>
+                            <button type="submit" className="bg-green-600 text-white text-lg p-2 border-rounded rounded-md">
+                                Confirmar
+                            </button>
                         </div>
                     </div>
                     <div className="bg-white w-3/4 py-4 px-4">
                             <div className="flex flex-row space-x-4">
                                 <div className="w-1/4 flex flex-col">
-                                    <label id="campo1" className="pb-1.5">Código</label>
-                                    <input {...register("codigo")} className="rounded-md border text-xl h-12"/>
+                                    <label id="campo1" className="pb-1.5 font-semibold"> Código <span className="text-red-600">*</span></label>
+                                    <input {...register("codigo" ,{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                                 </div>
                                 <div className="w-1/4 flex flex-col">
-                                    <label className="pb-1.5">Ano edição</label>
-                                    <input {...register("anoEdicao")} className="rounded-md border text-xl h-12"/>
+                                    <label className="pb-1.5 font-semibold">Ano edição <span className="text-red-600">*</span></label>
+                                    <input {...register("anoEdicao" ,{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                                 </div>
                                 <div className="w-2/4 flex flex-col">
-                                    <label className="pb-1.5">Título</label>
-                                    <input {...register("titulo")} className="rounded-md border text-xl h-12 w-full"/>
+                                    <label className="pb-1.5 font-semibold">Título <span className="text-red-600">*</span></label>
+                                    <input {...register("titulo" ,{ required: true })} className="rounded-md border text-xl h-12 w-full pl-2"/>
                                 </div>
                             </div>
                             <div className="w-full flex flex-col mt-4">
-                                <label className="pb-1.5">Subtítulo</label>
-                                <input {...register("subtitulo")} className="rounded-md border text-xl h-12"/>
+                                <label className="pb-1.5 font-semibold">Subtítulo <span className="text-red-600">*</span></label>
+                                <input {...register("subtitulo",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                             </div>
                             <div className="flex flex-row space-x-4 mt-4">
                                 <div className="w-1/2 flex flex-col">
-                                    <label className="pb-1.5">Livro Categoria</label>
-                                    <CategoriaSelect id={"CatSelect"} nome={"categorias"} classes={"rounded-md border text-xl h-12"}
+                                    <label className="pb-1.5 font-semibold">Livro Categoria <span className="text-red-600">*</span></label>
+                                    <CategoriaSelect id={"CatSelect"} nome={"categorias"} classes={"rounded-md border text-xl h-12 pl-2"}
                                      onChange={updateCategoria} valorSelecionado={getValues('livroCategoriaId')}/>
-                                    <input {...register("livroCategoriaId")} hidden={true}/>
+                                    <input {...register("livroCategoriaId",{ required: true })} hidden={true}/>
                                 </div>
                                 <div className="w-1/2 flex flex-col">
-                                    <label className="pb-1.5">Editora</label>
-                                    <input {...register("editora")} className="rounded-md border text-xl h-12"/>
+                                    <label className="pb-1.5 font-semibold">Editora <span className="text-red-600">*</span></label>
+                                    <input {...register("editora",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                                 </div>
                             </div>
                             <div className="flex flex-col mt-4">
-                                <label className="pb-1.5">Autor</label>
-                                <input {...register("autor")} className="rounded-md border text-xl h-12"/>
+                                <label className="pb-1.5 font-semibold">Autor <span className="text-red-600">*</span></label>
+                                <input {...register("autor",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                             </div>
                             <div className="flex flex-col mt-4">
-                                <label className="pb-1.5">Sinopse</label>
-                                <textarea {...register("sinopse")} className="rounded-md border text-xl h-56 text-start"/>
+                                <label className="pb-1.5 font-semibold">Sinopse <span className="text-red-600">*</span></label>
+                                <textarea {...register("sinopse",{ required: true })} className="rounded-md border text-xl h-56 text-start pl-2 py-1"/>
                             </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import {FaBook} from 'react-icons/fa'
 import BotaoAcao from "./BotaoAcao.tsx"
 import { useState } from "react"
 import {Link} from 'react-router-dom'
+import Rodape from "./Rodape.tsx"
 
 function Livros({filtroData}) {
 
@@ -23,9 +24,7 @@ function Livros({filtroData}) {
         <div className="px-4 bg-white">
             <Tabela filtroData={filtroData}/>
         </div> 
-        <div className="bg-white rounded-md py-8 px-4">
-            <h4>Mostrando 1 até 10 de 280 resultados</h4>
-        </div>
+        <Rodape totalLivros={233} pagina={1} tamanho={10} />
         </>
     )
 }

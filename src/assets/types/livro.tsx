@@ -17,6 +17,7 @@ interface Livro {
     sinopse : string;
     usuarioCadastro : string;
     usuarioUltimaAlteracao : string;
+    dataUltimaAlteracao : string;
     livroCategoriaId : number;
     anoEdicao : number
 }
