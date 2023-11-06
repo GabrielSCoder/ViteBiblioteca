@@ -2,12 +2,13 @@ import { getCategorias } from "../services/requisicoes"
 import {useState, useEffect} from 'react'
 import categoria from "../types/categoria"
 
-function CategoriaSelect({id, nome, classes, onChange, valorSelecionado}) {
+function CategoriaSelect({id, nome, classes, onChange, valorSelecionado} : {id : string, nome : string, classes : string, onChange : Function, valorSelecionado : null | number}) {
 
     const [dados, setDados] = useState<categoria[]>([])
 
-    const handleChange = (event) => {
-        var v = event.target.value
+    const handleChange = (event : React.ChangeEvent<HTMLSelectElement>) => {
+        var v : string | null
+        v = event.target.value
         if (v === "")
             v = null
         onChange(v)

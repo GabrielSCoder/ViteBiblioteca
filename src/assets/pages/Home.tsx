@@ -4,7 +4,7 @@ import LivrosC from "../components/LivrosC";
 import {useState} from 'react'
 
 function Home() {
-    const [filtroData, setFiltroData] = useState({ pesquisa: null, categoria: null });
+    const [filtroData, setFiltroData] = useState<{ pesquisa: string | null; categoria: string | null }>({ pesquisa: null, categoria: null });
     const [currentPage, setCurrentPage] = useState<number>(0);
 
 

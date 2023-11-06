@@ -65,8 +65,8 @@ function Form() {
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex flex-row py-4 space-x-4">
-                    <div className="bg-white w-1/4 py-4 text-center flex flex-col justify-between">
+                <div className="flex flex-col py-4 space-y-4 md:flex-row lg:space-x-4">
+                    <div id="lado1" className="bg-white w-full md:w-1/4 py-4 text-center flex flex-col justify-between">
                         <div>
                             <h2 className="font-bold text-xl">Envio de Arquivos</h2>
                             <p>Clique ou arraste seu arquivo até aqui</p>
@@ -85,45 +85,45 @@ function Form() {
                             </button>
                         </div>
                     </div>
-                    <div className="bg-white w-3/4 py-4 px-4">
-                            <div className="flex flex-row space-x-4">
-                                <div className="w-1/4 flex flex-col">
-                                    <label id="campo1" className="pb-1.5 font-semibold"> Código <span className="text-red-600">*</span></label>
-                                    <input {...register("codigo" ,{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
-                                </div>
-                                <div className="w-1/4 flex flex-col">
-                                    <label className="pb-1.5 font-semibold">Ano edição <span className="text-red-600">*</span></label>
-                                    <input {...register("anoEdicao" ,{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
-                                </div>
-                                <div className="w-2/4 flex flex-col">
-                                    <label className="pb-1.5 font-semibold">Título <span className="text-red-600">*</span></label>
-                                    <input {...register("titulo" ,{ required: true })} className="rounded-md border text-xl h-12 w-full pl-2"/>
-                                </div>
+                    <div id="lado2" className="bg-white w-full md:w-3/4 py-4 px-4 lg:px-4">
+                        <div className="flex flex-row space-x-4">
+                            <div className="w-1/4 flex flex-col">
+                                <label id="campo1" className="pb-1.5 font-semibold"> Código <span className="text-red-600">*</span></label>
+                                <input {...register("codigo" ,{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                             </div>
-                            <div className="w-full flex flex-col mt-4">
-                                <label className="pb-1.5 font-semibold">Subtítulo <span className="text-red-600">*</span></label>
-                                <input {...register("subtitulo",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
+                            <div className="w-1/4 flex flex-col">
+                                <label className="pb-1.5 font-semibold">Ano edição <span className="text-red-600">*</span></label>
+                                <input {...register("anoEdicao" ,{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                             </div>
-                            <div className="flex flex-row space-x-4 mt-4">
-                                <div className="w-1/2 flex flex-col">
-                                    <label className="pb-1.5 font-semibold">Livro Categoria <span className="text-red-600">*</span></label>
-                                    <CategoriaSelect id={"CatSelect"} nome={"categorias"} classes={"rounded-md border text-xl h-12 pl-2"}
-                                     onChange={updateCategoria} valorSelecionado={getValues('livroCategoriaId')}/>
-                                    <input {...register("livroCategoriaId",{ required: true })} hidden={true}/>
-                                </div>
-                                <div className="w-1/2 flex flex-col">
-                                    <label className="pb-1.5 font-semibold">Editora <span className="text-red-600">*</span></label>
-                                    <input {...register("editora",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
-                                </div>
+                            <div className="w-2/4 flex flex-col">
+                                <label className="pb-1.5 font-semibold">Título <span className="text-red-600">*</span></label>
+                                <input {...register("titulo" ,{ required: true })} className="rounded-md border text-xl h-12 w-full pl-2"/>
                             </div>
-                            <div className="flex flex-col mt-4">
-                                <label className="pb-1.5 font-semibold">Autor <span className="text-red-600">*</span></label>
-                                <input {...register("autor",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
+                        </div>
+                        <div className="w-full flex flex-col mt-4">
+                            <label className="pb-1.5 font-semibold">Subtítulo <span className="text-red-600">*</span></label>
+                            <input {...register("subtitulo",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
+                        </div>
+                        <div className="flex flex-row space-x-4 mt-4">
+                            <div className="w-1/2 flex flex-col">
+                                <label className="pb-1.5 font-semibold">Livro Categoria <span className="text-red-600">*</span></label>
+                                <CategoriaSelect id={"CatSelect"} nome={"categorias"} classes={"rounded-md border text-xl h-12 pl-2"}
+                                    onChange={updateCategoria} valorSelecionado={getValues('livroCategoriaId')}/>
+                                <input {...register("livroCategoriaId",{ required: true })} hidden={true}/>
                             </div>
-                            <div className="flex flex-col mt-4">
-                                <label className="pb-1.5 font-semibold">Sinopse <span className="text-red-600">*</span></label>
-                                <textarea {...register("sinopse",{ required: true })} className="rounded-md border text-xl h-56 text-start pl-2 py-1"/>
+                            <div className="w-1/2 flex flex-col">
+                                <label className="pb-1.5 font-semibold">Editora <span className="text-red-600">*</span></label>
+                                <input {...register("editora",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
                             </div>
+                        </div>
+                        <div className="flex flex-col mt-4">
+                            <label className="pb-1.5 font-semibold">Autor <span className="text-red-600">*</span></label>
+                            <input {...register("autor",{ required: true })} className="rounded-md border text-xl h-12 pl-2"/>
+                        </div>
+                        <div className="flex flex-col mt-4">
+                            <label className="pb-1.5 font-semibold">Sinopse <span className="text-red-600">*</span></label>
+                            <textarea {...register("sinopse",{ required: true })} className="rounded-md border text-xl h-56 text-start pl-2 py-1"/>
+                        </div>
                     </div>
                 </div>
             </form>

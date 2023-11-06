@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react'
 
 function Paginacao({pagina, qtdPaginas, primeiraPagina, ultimaPagina, avancarPagina} : {pagina : number, qtdPaginas : number, primeiraPagina : boolean, ultimaPagina : boolean, avancarPagina : Function}) {
 

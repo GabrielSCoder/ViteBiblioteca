@@ -1,4 +1,4 @@
-const token:string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lVXN1YXJpbyI6IkVTVEFHSUFSSU8iLCJub21lQ29sYWJvcmFkb3IiOiJBTlRPTklPIEFNQVVSSSBCRVNFUlJBIERFIFNPVVNBIiwiaWRDb2xhYm9yYWRvciI6Ijg1NiIsImlkQ2FyZ28iOiI0MiIsImNhcmdvIjoiUEVEUkVJUk8iLCJpZFVzdWFyaW8iOiIyNTEiLCJhbWJpZW50ZSI6IlBST0QiLCJleHAiOjE2OTg5NjQ1MjksImlzcyI6IkJPWDNfRVJQX0FQSSIsImF1ZCI6Imh0dHBzOi8vcGxhc2ZyYW4uY29tIn0.kmoEI0GIO-LGMSP306w47e4DYZBhv44atNVSLAdTAY0"
+const token:string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lVXN1YXJpbyI6IkVTVEFHSUFSSU8iLCJub21lQ29sYWJvcmFkb3IiOiJBTlRPTklPIEFNQVVSSSBCRVNFUlJBIERFIFNPVVNBIiwiaWRDb2xhYm9yYWRvciI6Ijg1NiIsImlkQ2FyZ28iOiI0MiIsImNhcmdvIjoiUEVEUkVJUk8iLCJpZFVzdWFyaW8iOiIyNTEiLCJhbWJpZW50ZSI6IlBST0QiLCJleHAiOjE2OTkyNzkyMTAsImlzcyI6IkJPWDNfRVJQX0FQSSIsImF1ZCI6Imh0dHBzOi8vcGxhc2ZyYW4uY29tIn0.-pjFugGt4UbU7aoBMLMZOLGTYMguyo8DuLuvZXRoRnQ"
 import axios from 'axios';
 import Livro from '../types/livro';
 import Categoria from '../types/categoria';
@@ -124,7 +124,7 @@ const login = async() => {
 }
 */
 
-export const getCategorias = async(setDados:React.Dispatch<React.SetStateAction<Categoria>>, query:string) => {
+export const getCategorias = async(setDados:React.Dispatch<React.SetStateAction<Categoria[]>>, query:string) => {
     try {
         const req_url = 'https://beta-api-new.plasfran.com/api/LivroCategoria/Select'
 

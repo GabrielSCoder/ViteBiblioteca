@@ -3,8 +3,9 @@ import {useEffect, useState} from 'react'
 import {FcPrevious} from 'react-icons/fc'
 import {GrPrevious} from 'react-icons/gr'
 import Paginacao from './Paginacao'
+import Livro from '../types/livro'
 
-function Rodape({pagina, tamanhoPagina, totalLivros , avancarPagina , qtdPaginas, dados}) {
+function Rodape({pagina, tamanhoPagina, totalLivros , avancarPagina , qtdPaginas, dados} : {pagina : number, tamanhoPagina : number, totalLivros :number , avancarPagina :Function , qtdPaginas : number, dados : number}) {
 
     const [primeiraPagina, setPrimeiraPagina] = useState<boolean>(false)
     const [ultimaPagina, setUltimaPagina] = useState<boolean>(false)

@@ -5,7 +5,7 @@ import { apagarLivro, getListagens } from "../services/requisicoes"
 import mostrarToast from '../utils/mostrarToast'
 import useDebounce from '../utils/debounce';
 
-export function DropMenu2({children, livroId, totalLivros, setTotalLivros}) {
+export function DropMenu2({children, livroId, totalLivros, setTotalLivros} : {children : any, livroId : number, totalLivros : number, setTotalLivros : React.Dispatch<React.SetStateAction<number>>}) {
   
   const handleDeleteLivro = async () => {
     const resp = await apagarLivro(livroId)

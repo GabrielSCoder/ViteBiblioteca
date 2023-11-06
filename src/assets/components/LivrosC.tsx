@@ -59,7 +59,9 @@ function LivrosC({filtroData, currentPage, setCurrentPage} : {filtroData : {pesq
             </div>
         </div>
         <div className="bg-white">
-            <TabelaC dados={dados} totalLivros={totalLivros} setTotalLivros={setTotalLivros}/>
+            <div className="overflow-x-auto">
+                <TabelaC dados={dados} totalLivros={totalLivros} setTotalLivros={setTotalLivros} />
+            </div>
         </div> 
         <Rodape totalLivros={totalLivros} pagina={currentPage} tamanhoPagina={tamanhoPagina} avancarPagina={avancarPagina} qtdPaginas={qtdPaginas} dados={dados.length}/>
         <ToastContainer />
