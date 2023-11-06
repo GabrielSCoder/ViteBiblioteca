@@ -10,7 +10,6 @@ function Rodape({pagina, tamanhoPagina, totalLivros , avancarPagina , qtdPaginas
     const [ultimaPagina, setUltimaPagina] = useState<boolean>(false)
 
     useEffect(() => {
-        //console.log(pagina)
         pagina === 0 ? setPrimeiraPagina(true) : setPrimeiraPagina(false)
         qtdPaginas-1 === pagina ? setUltimaPagina(true) : setUltimaPagina(false)
     }, [pagina, qtdPaginas])
@@ -35,7 +34,7 @@ function Rodape({pagina, tamanhoPagina, totalLivros , avancarPagina , qtdPaginas
                     ))}
                 </div>
             ) : (
-                <Paginacao pagina={pagina} qtdPaginas={qtdPaginas} primeiraPagina={primeiraPagina} ultimaPagina={ultimaPagina} avancarPagina={avancarPagina} setPrimeiraPagina={setPrimeiraPagina} setUltimaPagina={setUltimaPagina}/>
+                <Paginacao pagina={pagina} qtdPaginas={qtdPaginas} primeiraPagina={primeiraPagina} ultimaPagina={ultimaPagina} avancarPagina={avancarPagina}/>
             ) 
             }
         </div>

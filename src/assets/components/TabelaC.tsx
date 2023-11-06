@@ -4,11 +4,12 @@ import {BiDotsVerticalRounded} from 'react-icons/bi'
 import {BiPencil} from 'react-icons/bi'
 import { DropMenu2 } from "./DropMenu2.tsx"
 import formatarData from "../utils/dateformato.ts"
+import Livro from "../types/livro.tsx"
 
-function TabelaC({dados, totalLivros, setTotalLivros}) {
+function TabelaC({dados, totalLivros, setTotalLivros} : {dados: Livro[], totalLivros: number, setTotalLivros: React.Dispatch<React.SetStateAction<number>> }) {
 
     return (
-        <table className="w-full table-fixed">
+        <table className="w-full table-fixed overflow-x-">
             <thead className="bg-slate-50 border-b text-lg">
                 <tr>
                     <TabelaTh nome={"ID"} classes={"px-2 py-4 text-left w-20"}/>

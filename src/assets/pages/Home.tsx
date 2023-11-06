@@ -5,7 +5,7 @@ import {useState} from 'react'
 
 function Home() {
     const [filtroData, setFiltroData] = useState({ pesquisa: null, categoria: null });
-    const [currentPage, setCurrentPage] = useState<Number>(0);
+    const [currentPage, setCurrentPage] = useState<number>(0);
 
 
     return (

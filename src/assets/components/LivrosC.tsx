@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import mostrarToast from '../utils/mostrarToast.ts'
 import 'react-toastify/dist/ReactToastify.css';
 
-function LivrosC({filtroData, currentPage, setCurrentPage}) {
+function LivrosC({filtroData, currentPage, setCurrentPage} : {filtroData : {pesquisa : any, categoria : any}, currentPage : number, setCurrentPage : React.Dispatch<React.SetStateAction<number>>}) {
 
     const [dados, setDados] = useState<Livro[]>([]);
     const [totalLivros, setTotalLivros] = useState<number>(0);
@@ -60,9 +60,9 @@ function LivrosC({filtroData, currentPage, setCurrentPage}) {
         </div>
         <div className="bg-white">
             <TabelaC dados={dados} totalLivros={totalLivros} setTotalLivros={setTotalLivros}/>
-            <ToastContainer />
         </div> 
         <Rodape totalLivros={totalLivros} pagina={currentPage} tamanhoPagina={tamanhoPagina} avancarPagina={avancarPagina} qtdPaginas={qtdPaginas} dados={dados.length}/>
+        <ToastContainer />
         </>
     )
 }

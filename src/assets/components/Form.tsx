@@ -12,12 +12,12 @@ import { useCallback } from 'react';
 
 function Form() {
 
-    const {id} = useParams()
+    const {id} = useParams<{id : string | undefined}>()
     const navigate = useNavigate();
 
     const { register, handleSubmit, reset, setValue, getValues, formState: { errors } } = useForm<Livro>();
     
-    const updateCategoria = (value) => {
+    const updateCategoria = (value:number) => {
         setValue("livroCategoriaId", value)
     }
 
@@ -28,7 +28,7 @@ function Form() {
     }
 
     const onSubmit = useCallback(
-        useDebounce(async (data) => {
+        useDebounce(async (data : Livro) => {
           const resp = await pLivro(data, id);
           navigate('/');
           resp ? id ? mostrarToast('Editado com sucesso!') : mostrarToast('Adicionado com sucesso!') : console.log("erro")

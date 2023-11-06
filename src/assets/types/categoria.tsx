@@ -1,6 +1,6 @@
-type categoria = {
+type Categoria = {
     id : number
     descricao : string
 }
 
-export default categoria
+export default Categoria
