@@ -1,4 +1,4 @@
-const token:string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lVXN1YXJpbyI6IkVTVEFHSUFSSU8iLCJub21lQ29sYWJvcmFkb3IiOiJBTlRPTklPIEFNQVVSSSBCRVNFUlJBIERFIFNPVVNBIiwiaWRDb2xhYm9yYWRvciI6Ijg1NiIsImlkQ2FyZ28iOiI0MiIsImNhcmdvIjoiUEVEUkVJUk8iLCJpZFVzdWFyaW8iOiIyNTEiLCJhbWJpZW50ZSI6IlBST0QiLCJleHAiOjE2OTkyNzkyMTAsImlzcyI6IkJPWDNfRVJQX0FQSSIsImF1ZCI6Imh0dHBzOi8vcGxhc2ZyYW4uY29tIn0.-pjFugGt4UbU7aoBMLMZOLGTYMguyo8DuLuvZXRoRnQ"
+const token:string = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21lVXN1YXJpbyI6IkVTVEFHSUFSSU8iLCJub21lQ29sYWJvcmFkb3IiOiJBTlRPTklPIEFNQVVSSSBCRVNFUlJBIERFIFNPVVNBIiwiaWRDb2xhYm9yYWRvciI6Ijg1NiIsImlkQ2FyZ28iOiI0MiIsImNhcmdvIjoiUEVEUkVJUk8iLCJpZFVzdWFyaW8iOiIyNTEiLCJhbWJpZW50ZSI6IlBST0QiLCJleHAiOjE2OTk1MDU5ODAsImlzcyI6IkJPWDNfRVJQX0FQSSIsImF1ZCI6Imh0dHBzOi8vcGxhc2ZyYW4uY29tIn0.eGW-GM-W5BBAiqngmYRkasw-jGAs_Tj0j7axIqt0vvM"
 import axios from 'axios';
 import Livro from '../types/livro';
 import Categoria from '../types/categoria';
@@ -52,7 +52,6 @@ export const getListagens2 = async(pesquisa:string, categoriaid:number, pagina:n
         await setTotal(response.data.dados.totalRegisters)
         await setTamanhoPagina(response.data.dados.pageSize)
         await setQtdPaginas(response.data.dados.totalPages)
-        //console.log(data)
 
     } catch (error) {
         console.error(error)
