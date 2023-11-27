@@ -9,7 +9,7 @@ import Livro from "../types/livro.tsx"
 function TabelaC({dados, totalLivros, setTotalLivros} : {dados: Livro[], totalLivros: number, setTotalLivros: React.Dispatch<React.SetStateAction<number>> }) {
 
     return (
-        <table className="lg:w-full table-fixed md:min-w-full">
+        <table className="lg:w-full table-fixed md:min-w-full sm:min-w-full">
             <thead className="bg-slate-50 border-b text-lg">
                 <tr>
                     <TabelaTh nome={"ID"} classes={"px-2 py-4 text-left w-20"}/>
