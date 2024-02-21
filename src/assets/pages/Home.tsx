@@ -1,5 +1,6 @@
 import Filtro from "../components/Filtro";
 import LivrosC from "../components/LivrosC";
+import LivrosD from "../components/LivrosD";
 
 import {useState} from 'react'
 
@@ -12,7 +13,7 @@ function Home() {
         <>
             <div className="mx-3">
                 <Filtro setFiltroData={setFiltroData} setCurrentPage={setCurrentPage}/>
-                <LivrosC filtroData={filtroData} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                <LivrosD filtroData={filtroData} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </div>
                 <div className="mb-10">
             </div>

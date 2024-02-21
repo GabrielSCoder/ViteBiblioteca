@@ -1,4 +1,5 @@
-import { getCategorias } from "../services/requisicoes"
+//import { getCategorias } from "../services/requisicoes"
+import { getCategorias } from '../services/requisicoesApi';
 import {useState, useEffect} from 'react'
 import categoria from "../types/categoria"
 

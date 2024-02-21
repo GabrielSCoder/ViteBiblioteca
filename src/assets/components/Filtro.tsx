@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
-import { getCategorias } from '../services/requisicoes';
+//import { getCategorias } from '../services/requisicoes';
+import { getCategorias } from '../services/requisicoesApi';
 import Categoria from '../types/categoria';
 import CategoriaSelect from './Categoria';
 import useDebounce from '../utils/debounce';

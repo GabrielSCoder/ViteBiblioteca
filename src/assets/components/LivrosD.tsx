@@ -5,13 +5,11 @@ import { useState, useEffect } from "react"
 import {Link} from 'react-router-dom'
 import Rodape from "./Rodape.tsx"
 import Livro from "../types/livro.tsx"
-import { getListagens2 } from "../services/requisicoes.tsx"
 import { ToastContainer, toast } from 'react-toastify';
-import mostrarToast from '../utils/mostrarToast.ts'
 import 'react-toastify/dist/ReactToastify.css';
-import '../services/requisicoesApi.tsx';
+import {getListagens2} from '../services/requisicoesApi.tsx';
 
-function LivrosC({filtroData, currentPage, setCurrentPage} : {filtroData : {pesquisa : any, categoria : any}, currentPage : number, setCurrentPage : React.Dispatch<React.SetStateAction<number>>}) {
+function LivrosD({filtroData, currentPage, setCurrentPage} : {filtroData : {pesquisa : any, categoria : any}, currentPage : number, setCurrentPage : React.Dispatch<React.SetStateAction<number>>}) {
 
     const [dados, setDados] = useState<Livro[]>([]);
     const [totalLivros, setTotalLivros] = useState<number>(0);
@@ -70,4 +68,4 @@ function LivrosC({filtroData, currentPage, setCurrentPage} : {filtroData : {pesq
     )
 }
 
-export default LivrosC
+export default LivrosD

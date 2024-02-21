@@ -1,7 +1,8 @@
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
 import {BiPencil, BiTrashAlt} from 'react-icons/bi'
 import {Link, useParams} from 'react-router-dom'
-import { apagarLivro, getListagens } from "../services/requisicoes"
+//import { apagarLivro, getListagens } from "../services/requisicoes"
+import { apagarLivro} from '../services/requisicoesApi'
 import mostrarToast from '../utils/mostrarToast'
 import useDebounce from '../utils/debounce';
 

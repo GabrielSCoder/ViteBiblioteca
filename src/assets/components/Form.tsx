@@ -2,7 +2,8 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import Livro from "../types/livro"
 import {FaBook} from 'react-icons/fa'
 import {BsImage} from 'react-icons/bs'
-import { pLivro, getLivro } from "../services/requisicoes";
+//import { pLivro, getLivro } from "../services/requisicoes";
+import { pLivro, getLivro } from "../services/requisicoesApi";
 import { useParams, useNavigate } from "react-router-dom";
 import {useEffect} from 'react'
 import CategoriaSelect from "./Categoria";
@@ -24,14 +25,14 @@ function Form() {
     const submiti: SubmitHandler<Livro> = async (data) => {
         const resp = await pLivro(data, id)
         navigate("/")
-        resp ? id ? mostrarToast("Editado com sucesso!") : mostrarToast("Adicionado com sucesso!") : console.log("erro")
+        resp ? id ? mostrarToast("Editado com sucesso!") : mostrarToast("Adicionado com sucesso!") : console.log(resp)
     }
 
     const onSubmit = useCallback(
         useDebounce(async (data : Livro) => {
           const resp = await pLivro(data, id);
           navigate('/');
-          resp ? id ? mostrarToast('Editado com sucesso!') : mostrarToast('Adicionado com sucesso!') : console.log("erro")
+          resp ? id ? mostrarToast('Editado com sucesso!') : mostrarToast('Adicionado com sucesso!') : console.log(resp)
         }, 500),
         [id, navigate]
     );
